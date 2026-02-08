@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package ai.center.admin.v1;
+
+import "google/api/annotations.proto";
+import "google/api/field_behavior.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/97wsn/ai-center/api/center/admin/v1;admin";
+
+service User {
+  rpc Login(UserLoginRequest) returns (UserLoginResponse) {
+    option (google.api.http) = {
+      post: "/center/admin/user/login"
+      body: "*"
+    };
+  }
+}
+
+message UserLoginRequest {
+  // 用户名
+  string UserName = 1 [
+    (validate.rules).string.min_len = 1,
+    (google.api.field_behavior) = REQUIRED
+  ];
+  // 密码
+  string pwd = 2 [
+    (validate.rules).string.min_len = 1,
+    (google.api.field_behavior) = REQUIRED
+  ];
+}
+message UserLoginResponse {
+  // 用户id
+  int32 user_id = 1;
+}
