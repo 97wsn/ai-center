@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             v6.33.4
-// source: ai/center/rpc/v1/login.proto
+// source: ai/center/admin/v1/user.proto
 
-package rpc
+package admin
 
 import (
 	context "context"
@@ -19,14 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	User_Login_FullMethodName = "/ai.center.rpc.v1.User/Login"
+	User_Login_FullMethodName = "/ai.center.admin.v1.User/Login"
 )
 
 // UserClient is the client API for User service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserClient interface {
-	// 登陆
 	Login(ctx context.Context, in *UserLoginRequest, opts ...grpc.CallOption) (*UserLoginResponse, error)
 }
 
@@ -52,7 +51,6 @@ func (c *userClient) Login(ctx context.Context, in *UserLoginRequest, opts ...gr
 // All implementations should embed UnimplementedUserServer
 // for forward compatibility.
 type UserServer interface {
-	// 登陆
 	Login(context.Context, *UserLoginRequest) (*UserLoginResponse, error)
 }
 
@@ -108,7 +106,7 @@ func _User_Login_Handler(srv interface{}, ctx context.Context, dec func(interfac
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var User_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ai.center.rpc.v1.User",
+	ServiceName: "ai.center.admin.v1.User",
 	HandlerType: (*UserServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -117,5 +115,5 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "ai/center/rpc/v1/login.proto",
+	Metadata: "ai/center/admin/v1/user.proto",
 }

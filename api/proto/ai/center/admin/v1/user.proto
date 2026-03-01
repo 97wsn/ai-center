@@ -1,23 +1,25 @@
 syntax = "proto3";
 
-package ai.center.rpc.v1;
+package ai.center.admin.v1;
 
+import "google/api/annotations.proto";
 import "google/api/field_behavior.proto";
 import "validate/validate.proto";
 
-option go_package = "github.com/97wsn/ai-center/api/center/rpc/v1;rpc";
+option go_package = "github.com/97wsn/ai-center/api/center/admin/v1;admin";
 
 service User {
-  // 登陆
-  rpc Login(UserLoginRequest) returns (UserLoginResponse) {}
+  rpc Login(UserLoginRequest) returns (UserLoginResponse) {
+    option (google.api.http) = {
+      post: "/center/admin/user/login"
+      body: "*"
+    };
+  }
 }
-
-
-
 
 message UserLoginRequest {
   // 用户名
-  string UserName = 1 [
+  string user_name = 1 [
     (validate.rules).string.min_len = 1,
     (google.api.field_behavior) = REQUIRED
   ];
@@ -27,11 +29,7 @@ message UserLoginRequest {
     (google.api.field_behavior) = REQUIRED
   ];
 }
-
-message UserLoginResponse{
+message UserLoginResponse {
   // 用户id
   int32 user_id = 1;
 }
-
-
-

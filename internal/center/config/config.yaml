@@ -1,0 +1,13 @@
+app:
+    env: dev
+database:
+    driver: mysql
+    dsn: root:root@tcp(127.0.0.1:3306)/test?parseTime=True&loc=Local
+redis:
+    server: localhost:6379
+etcd:
+    endpoints:
+     - 127.0.0.1:2379
+     - 127.0.0.1:22379
+
+

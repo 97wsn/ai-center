@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v6.33.4
-// source: ai/center/rpc/v1/login.proto
+// source: ai/center/admin/v1/user.proto
 
-package rpc
+package admin
 
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
@@ -26,7 +26,7 @@ const (
 type UserLoginRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// 用户名
-	UserName string `protobuf:"bytes,1,opt,name=UserName,proto3" json:"UserName,omitempty"`
+	UserName string `protobuf:"bytes,1,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty"`
 	// 密码
 	Pwd           string `protobuf:"bytes,2,opt,name=pwd,proto3" json:"pwd,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -35,7 +35,7 @@ type UserLoginRequest struct {
 
 func (x *UserLoginRequest) Reset() {
 	*x = UserLoginRequest{}
-	mi := &file_ai_center_rpc_v1_login_proto_msgTypes[0]
+	mi := &file_ai_center_admin_v1_user_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +47,7 @@ func (x *UserLoginRequest) String() string {
 func (*UserLoginRequest) ProtoMessage() {}
 
 func (x *UserLoginRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_center_rpc_v1_login_proto_msgTypes[0]
+	mi := &file_ai_center_admin_v1_user_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,7 +60,7 @@ func (x *UserLoginRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserLoginRequest.ProtoReflect.Descriptor instead.
 func (*UserLoginRequest) Descriptor() ([]byte, []int) {
-	return file_ai_center_rpc_v1_login_proto_rawDescGZIP(), []int{0}
+	return file_ai_center_admin_v1_user_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *UserLoginRequest) GetUserName() string {
@@ -87,7 +87,7 @@ type UserLoginResponse struct {
 
 func (x *UserLoginResponse) Reset() {
 	*x = UserLoginResponse{}
-	mi := &file_ai_center_rpc_v1_login_proto_msgTypes[1]
+	mi := &file_ai_center_admin_v1_user_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -99,7 +99,7 @@ func (x *UserLoginResponse) String() string {
 func (*UserLoginResponse) ProtoMessage() {}
 
 func (x *UserLoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_ai_center_rpc_v1_login_proto_msgTypes[1]
+	mi := &file_ai_center_admin_v1_user_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -112,7 +112,7 @@ func (x *UserLoginResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserLoginResponse.ProtoReflect.Descriptor instead.
 func (*UserLoginResponse) Descriptor() ([]byte, []int) {
-	return file_ai_center_rpc_v1_login_proto_rawDescGZIP(), []int{1}
+	return file_ai_center_admin_v1_user_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *UserLoginResponse) GetUserId() int32 {
@@ -122,39 +122,39 @@ func (x *UserLoginResponse) GetUserId() int32 {
 	return 0
 }
 
-var File_ai_center_rpc_v1_login_proto protoreflect.FileDescriptor
+var File_ai_center_admin_v1_user_proto protoreflect.FileDescriptor
 
-const file_ai_center_rpc_v1_login_proto_rawDesc = "" +
+const file_ai_center_admin_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x1cai/center/rpc/v1/login.proto\x12\x10ai.center.rpc.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17validate/validate.proto\"Z\n" +
-	"\x10UserLoginRequest\x12'\n" +
-	"\bUserName\x18\x01 \x01(\tB\v\xe2A\x01\x02\xfaB\x04r\x02\x10\x01R\bUserName\x12\x1d\n" +
+	"\x1dai/center/admin/v1/user.proto\x12\x12ai.center.admin.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17validate/validate.proto\"[\n" +
+	"\x10UserLoginRequest\x12(\n" +
+	"\tuser_name\x18\x01 \x01(\tB\v\xe2A\x01\x02\xfaB\x04r\x02\x10\x01R\buserName\x12\x1d\n" +
 	"\x03pwd\x18\x02 \x01(\tB\v\xe2A\x01\x02\xfaB\x04r\x02\x10\x01R\x03pwd\",\n" +
 	"\x11UserLoginResponse\x12\x17\n" +
-	"\auser_id\x18\x01 \x01(\x05R\x06userId2Z\n" +
-	"\x04User\x12R\n" +
-	"\x05Login\x12\".ai.center.rpc.v1.UserLoginRequest\x1a#.ai.center.rpc.v1.UserLoginResponse\"\x00B2Z0github.com/97wsn/ai-center/api/center/rpc/v1;rpcb\x06proto3"
+	"\auser_id\x18\x01 \x01(\x05R\x06userId2\x81\x01\n" +
+	"\x04User\x12y\n" +
+	"\x05Login\x12$.ai.center.admin.v1.UserLoginRequest\x1a%.ai.center.admin.v1.UserLoginResponse\"#\x82\xd3\xe4\x93\x02\x1d:\x01*\"\x18/center/admin/user/loginB6Z4github.com/97wsn/ai-center/api/center/admin/v1;adminb\x06proto3"
 
 var (
-	file_ai_center_rpc_v1_login_proto_rawDescOnce sync.Once
-	file_ai_center_rpc_v1_login_proto_rawDescData []byte
+	file_ai_center_admin_v1_user_proto_rawDescOnce sync.Once
+	file_ai_center_admin_v1_user_proto_rawDescData []byte
 )
 
-func file_ai_center_rpc_v1_login_proto_rawDescGZIP() []byte {
-	file_ai_center_rpc_v1_login_proto_rawDescOnce.Do(func() {
-		file_ai_center_rpc_v1_login_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_ai_center_rpc_v1_login_proto_rawDesc), len(file_ai_center_rpc_v1_login_proto_rawDesc)))
+func file_ai_center_admin_v1_user_proto_rawDescGZIP() []byte {
+	file_ai_center_admin_v1_user_proto_rawDescOnce.Do(func() {
+		file_ai_center_admin_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_ai_center_admin_v1_user_proto_rawDesc), len(file_ai_center_admin_v1_user_proto_rawDesc)))
 	})
-	return file_ai_center_rpc_v1_login_proto_rawDescData
+	return file_ai_center_admin_v1_user_proto_rawDescData
 }
 
-var file_ai_center_rpc_v1_login_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_ai_center_rpc_v1_login_proto_goTypes = []any{
-	(*UserLoginRequest)(nil),  // 0: ai.center.rpc.v1.UserLoginRequest
-	(*UserLoginResponse)(nil), // 1: ai.center.rpc.v1.UserLoginResponse
+var file_ai_center_admin_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_ai_center_admin_v1_user_proto_goTypes = []any{
+	(*UserLoginRequest)(nil),  // 0: ai.center.admin.v1.UserLoginRequest
+	(*UserLoginResponse)(nil), // 1: ai.center.admin.v1.UserLoginResponse
 }
-var file_ai_center_rpc_v1_login_proto_depIdxs = []int32{
-	0, // 0: ai.center.rpc.v1.User.Login:input_type -> ai.center.rpc.v1.UserLoginRequest
-	1, // 1: ai.center.rpc.v1.User.Login:output_type -> ai.center.rpc.v1.UserLoginResponse
+var file_ai_center_admin_v1_user_proto_depIdxs = []int32{
+	0, // 0: ai.center.admin.v1.User.Login:input_type -> ai.center.admin.v1.UserLoginRequest
+	1, // 1: ai.center.admin.v1.User.Login:output_type -> ai.center.admin.v1.UserLoginResponse
 	1, // [1:2] is the sub-list for method output_type
 	0, // [0:1] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -162,26 +162,26 @@ var file_ai_center_rpc_v1_login_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_ai_center_rpc_v1_login_proto_init() }
-func file_ai_center_rpc_v1_login_proto_init() {
-	if File_ai_center_rpc_v1_login_proto != nil {
+func init() { file_ai_center_admin_v1_user_proto_init() }
+func file_ai_center_admin_v1_user_proto_init() {
+	if File_ai_center_admin_v1_user_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ai_center_rpc_v1_login_proto_rawDesc), len(file_ai_center_rpc_v1_login_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_ai_center_admin_v1_user_proto_rawDesc), len(file_ai_center_admin_v1_user_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_ai_center_rpc_v1_login_proto_goTypes,
-		DependencyIndexes: file_ai_center_rpc_v1_login_proto_depIdxs,
-		MessageInfos:      file_ai_center_rpc_v1_login_proto_msgTypes,
+		GoTypes:           file_ai_center_admin_v1_user_proto_goTypes,
+		DependencyIndexes: file_ai_center_admin_v1_user_proto_depIdxs,
+		MessageInfos:      file_ai_center_admin_v1_user_proto_msgTypes,
 	}.Build()
-	File_ai_center_rpc_v1_login_proto = out.File
-	file_ai_center_rpc_v1_login_proto_goTypes = nil
-	file_ai_center_rpc_v1_login_proto_depIdxs = nil
+	File_ai_center_admin_v1_user_proto = out.File
+	file_ai_center_admin_v1_user_proto_goTypes = nil
+	file_ai_center_admin_v1_user_proto_depIdxs = nil
 }
